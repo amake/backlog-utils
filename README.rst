@@ -28,7 +28,7 @@ For simplicity, you are recommended to first create a Jython virtualenv like::
 
 This package is not on PyPI, so install with::
 
-    pip install git+https://github.com/amake/backlog-utils
+    pip install --process-dependency-links git+https://github.com/amake/backlog-utils
 
 License
 =======
