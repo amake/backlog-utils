@@ -1,21 +1,30 @@
 Backlog Utils
 =============
 
-A tool for doing things with Backlog.
+A tool for doing things with `Backlog <http://www.backlog.jp/>`__.
 
 Usage
 =====
-Invoke as::
+See help::
 
-    backlog
+    backlog -h
+
+Requirements
+============
+Jython 2.7
 
 Quick Install
 =============
+For simplicity, you are recommended to first create a Jython virtualenv like::
+
+    virtualenv -p $(which jython) env
+    . env/bin/activate
+
 This package is not on PyPI, so install with::
 
-    pip install git+https://TBD
+    pip install git+https://github.com/amake/backlog-utils
 
 License
 =======
 
-TBD
+backlog-utils is distributed under the `MIT license <LICENSE.txt>`__.
