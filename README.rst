@@ -15,6 +15,12 @@ Jython 2.7
 
 Quick Install
 =============
+
+Put your Backlog credentials in ``~/.backlog.properties``::
+
+    apiKey=[your API key]
+    spaceId=[your space ID]
+
 For simplicity, you are recommended to first create a Jython virtualenv like::
 
     virtualenv -p $(which jython) env
