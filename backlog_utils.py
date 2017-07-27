@@ -54,15 +54,19 @@ def wiki_sync(project, prefix, root, force=False):
         rel_path = path.relpath(basename, start=root)
         title = normalize('NFC', '/'.join([prefix] + rel_path.split(path.sep)).decode('utf-8'))
         body = normalize('NFC', read_file_guess_encoding(file_path).replace(u'\r\n', u'\n'))
-        wiki_id = find_wiki_id(wikis, title)
-        if wiki_id:
-            print('Going to update wiki entry: %s' % title)
-            if force:
-                update = UpdateWikiParams(wiki_id)
-                update.content(body)
-                backlog.updateWiki(update)
+        wiki = find_wiki_id(wikis, title)
+        if wiki:
+            curr_body = backlog.getWiki(wiki.id).content
+            if curr_body == body:
+                print('Up-to-date. Skipping: %s' % title)
+            else:
+                print('Updating entry: %s' % title)
+                if force:
+                    update = UpdateWikiParams(wiki.id)
+                    update.content(body)
+                    backlog.updateWiki(update)
         else:
-            print('Going to create wiki entry: %s' % title)
+            print('Creating entry: %s' % title)
             if force:
                 create = CreateWikiParams(project_id, title, body)
                 backlog.createWiki(create)
