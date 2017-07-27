@@ -26,10 +26,11 @@ setup(
     ],
     keywords='backlog',
     py_modules=['backlog_utils'],
-    install_requires=['https://github.com/amake/jyven/tarball/master#egg=package-1.0'],
+    install_requires=['jyven'],
     entry_points={
         'console_scripts': [
             'backlog=backlog_utils:main',
         ],
     },
+    dependency_links=['https://github.com/amake/jyven/tarball/master#egg=jyven-0'],
 )
